@@ -28,14 +28,23 @@ module.exports = {
     'vue/max-attributes-per-line': 'off',
     'vue/component-name-in-template-casing': 'off',
     // ↑ html部分をPascalにするかkebabにするかの選択です。
-    'vue/html-self-closing': ['error', {
-      'html': {
-        'void': 'always'
-      }
-    }],    
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+        },
+      },
+    ],
+    'prettier/prettier': [
+      'error',
+      {
+        // semi: false,
+        singleQuote: true,
+      },
+    ],
   },
-
-  globals:{
-      Vue: true
-  }
-}
+  globals: {
+    Vue: true,
+  },
+};
