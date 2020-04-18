@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Vueの色々</title>
+  </head>
+
+  <body>
+    <script>
+      // ---------------------------------------------------------------
+      // ■bind()の確認
+      // ---------------------------------------------------------------
+      const module = {
+        x: 42,
+        getX: function() {
+          return this.x;
+        },
+      };
+
+      const unboundGetX = module.getX;
+      console.log(unboundGetX()); // The function gets invoked at the global scope
+      // expected output: undefined
+
+      const boundGetX = unboundGetX.bind(module);
+      console.log(boundGetX());
+      // expected output: 42
+    </script>
+
+    <!--  -->
+    <!-- ■Vue の動作確認 -->
+    <!--  -->
+    <div id="app-2">
+      <span :title="message">
+        Hover your mouse over me for a few second to see my dynamically bound title!
+      </span>
+    </div>
+
+    <script>
+      const app2 = new Vue({
+        el: '#app-2',
+        data: {
+          message: 'You loaded this page on ' + new Date().toLocaleString(),
+        },
+      });
+    </script>
+
+    <!--  -->
+    <!-- ■要素の有無を切り替え -->
+    <!--  -->
+    <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+    </div>
+
+    <script>
+      const app3 = new Vue({
+        el: '#app-3',
+        data: {
+          seen: true,
+        },
+      });
+    </script>
+
+    <!--  -->
+    <!-- ループ -->
+    <!--  -->
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{todo.text}}
+        </li>
+      </ol>
+    </div>
+
+    <script>
+      const app4 = new Vue({
+        el: '#app-4',
+        data: {
+          todos: [{ text: 'Learn JavaScript' }, { text: 'Learn Vue' }, { text: 'Build something awesome' }],
+        },
+      });
+    </script>
+
+    <!--  -->
+    <!-- イベント -->
+    <!--  -->
+    <h1>イベント</h1>
+    <div id="app-5">
+      <p>{{message}}</p>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+
+      <p id="jquerry-5">Hello jQuerry!</p>
+      <button>Reverse Message</button>
+    </div>
+
+    <script>
+      const app5 = new Vue({
+        el: '#app-5',
+        data: {
+          message: 'Hello Vue.js!',
+        },
+        methods: {
+          reverseMessage: function() {
+            this.message = this.message
+              .split('')
+              .reverse()
+              .join('');
+          },
+        },
+      });
+
+      $(function() {
+        $('#jquerry-5+button').on('click', function() {
+          $('#jquerry-5').text(
+            $('#jquerry-5')
+              .text()
+              .split('')
+              .reverse()
+              .join('')
+          );
+        });
+      });
+    </script>
+
+    <!--  -->
+    <!-- 双方向バインディング -->
+    <!--  -->
+    <h1>双方向バインディング</h1>
+    <div id="app-6">
+      <p>computed: {{now}}</p>
+      <p>methods : {{nowMethods()}}</p>
+      <p>{{message}}</p>
+      <p class="motomoto" :class="{child: isChild, 'is-active':isActive}">{{message2}}</p>
+      <input v-model="message" />
+
+      <p id="jquerry-6">Hello jQuerry!</p>
+      <input type="text" value="Hello jQuerry!" />
+      <hr />
+      <p>Original message: "{{ message }}"</p>
+      <p>Computed reversed message: "{{ reversedMessage }}"</p>
+
+      <!-- watch -->
+      <div id="demo">{{fullNameC}}</div>
+    </div>
+
+    <script>
+      const app6 = new Vue({
+        el: '#app-6',
+        data: {
+          message: 'Hello Vue.js!',
+          message2: 'Hello Vue.js 2!',
+          isChild: false,
+          isActive: true,
+          nowcnt: 1,
+          cnt: 1,
+
+          firstName: 'Foo',
+          lastName: 'Bar',
+          fullName: 'Foo Bar',
+        },
+        watch: {
+          firstName: function(val) {
+            this.fullName = val + ' ' + this.lastName;
+          },
+          lastName: function(val) {
+            this.fullName = this.firstName + ' ' + val;
+          },
+        },
+        computed: {
+          reversedMessage: function() {
+            return this.message
+              .split('')
+              .reverse()
+              .join('');
+          },
+          now: function() {
+            // return new Date().toLocaleString() + ' ' + String(this.nowcnt++)
+            return new Date().toLocaleString();
+          },
+          fullNameC: {
+            get: function() {
+              return this.firstName + ' ' + this.lastName;
+            },
+            set: function(newValue) {
+              var names = newValue.split(' ');
+              this.firstName = names[0];
+              this.lastName = names[names.length - 1];
+            },
+          },
+        },
+        methods: {
+          nowMethods: function() {
+            // return new Date().toLocaleString() + ' ' + String(this.cnt++)
+            return new Date().toLocaleString();
+          },
+        },
+      });
+
+      $(function() {
+        $('#jquerry-6+input').on('keyup', function() {
+          $('#jquerry-6').text($(this).val());
+        });
+      });
+    </script>
+
+    <!--  -->
+    <!-- ウォッチャ -->
+    <!--  -->
+    <h1>ウォッチャ</h1>
+    <div id="watch-example">
+      <p>
+        Ask a yes/no question:
+        <input v-model="question" />
+      </p>
+      <p>{{answer}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script>
+      var watchExampleVM = new Vue({
+        el: '#watch-example',
+        data: {
+          question: '',
+          answer: 'I cannot give you an answer until you ask a question!',
+        },
+        watch: {
+          // この関数はquestionが変わるごとに実行されます。
+          question: function(newQuestion, oldQuestion) {
+            this.answer = 'Waiting for you to stop typing...';
+            this.debouncedGetAnswer();
+          },
+        },
+        created: function() {
+          this.debouncedGetAnswer = _.debounce(this.getAnswer, 500);
+        },
+        methods: {
+          getAnswer: function() {
+            if (this.question.indexOf('?') === -1) {
+              this.answer = 'Questions usually contaion a question mark. ;-)';
+              return;
+            }
+            this.answer = 'Thinking...';
+            var vm = this;
+            axios
+              .get('https://yesno.wtf/api')
+              .then(function(respose) {
+                vm.answer = _.capitalize(response.data.answer);
+              })
+              .catch(function(error) {
+                vm.answer = 'Error! Could not reach the API. ' + error;
+              });
+          },
+        },
+      });
+    </script>
+
+    <!--  -->
+    <!-- コンポーネント -->
+    <!--  -->
+    <h1>コンポーネント</h1>
+    <div id="components-demo">
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+    </div>
+
+    <script>
+      // button-counter と呼ばれる新しいコンポーネントを定義します
+      Vue.component('button-counter', {
+        data: function() {
+          return {
+            count: 0,
+          };
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>',
+      });
+
+      new Vue({ el: '#components-demo' });
+
+      console.log('おしまい');
+    </script>
+  </body>
+</html>
