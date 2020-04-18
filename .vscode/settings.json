@@ -1,0 +1,19 @@
+{
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    // フォーマッターをvscode-typescriptに変更
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    // この設定はprettierではなくtypescriptのものです
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+          "language": "vue",
+          "autoFix": true
+        }
+    ],
+    "editor.formatOnSave": true
+}
