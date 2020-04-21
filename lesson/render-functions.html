@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Render Functions</title>
+    <script src="https://unpkg.com/vue@2.6.11"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-button href="https://vuejs.org/">anchor</my-button>
+        <my-button tag="span">span</my-button>
+        <my-button>button</my-button>
+        <hr>
+        <counter-button></counter-button>
+    </div>
+
+    <script>
+        const MyButton = {
+            props: ['href', 'tag'],
+            render: function (createElement) {
+                const tag = this.tag || (this.href ? 'a' : 'button')
+                return createElement(tag, {
+                    attrs: { href: this.href || '#' }
+                }, this.$slots.default)
+            }
+        }
+
+        const CounterButton = {
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            render: function (createElement) {
+                return createElement('div', [
+                    createElement(
+                        'button',
+                        {
+                            on: {
+                                click: () => (this.counter += 1)
+                            }
+                        },
+                        'クリックでカウントアップ'
+                    ),
+                    createElement('p', [
+                        'クリックされた回数：',
+                        createElement('b', this.counter + '回')
+                    ])
+                ])
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            components: {
+                MyButton,
+                CounterButton
+            },
+        })
+    </script>
+
+</body>
+
+</html>
