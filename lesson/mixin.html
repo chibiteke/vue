@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mixin</title>
+    <script src="https://unpkg.com/vue@2.6.11"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <icon-share-button></icon-share-button>
+        <text-share-button></text-share-button>
+        <hr>
+        <login-required-page></login-required-page>
+    </div>
+    <script>
+        const Sharable = {
+            data: function () {
+                return {
+                    _isProcessing: false
+                }
+            },
+            created: function () {
+                console.log('Sharableミックスインのフックが呼ばれました')
+            },
+            methods: {
+                share: function () {
+                    if (this._isProcessing) {
+                        return
+                    }
+                    if (!window.confirm('シェアしますか？')) {
+                        return
+                    }
+                    this._isProcessing = true
+                    setTimeout(() => {
+                        window.alert(' シェアしました ')
+                        this._isProcessing = false
+
+                    }, 300)
+                }
+            }
+        }
+        const IconShareButton = {
+            mixins: [Sharable],
+            created: function () {
+                console.log('IconShareButton のフックが呼ばれました')
+            },
+            template: `
+                <button @click="share"><i class="fas fa-share-square"></i></button>
+            `
+        }
+        const TextShareButton = {
+            mixins: [Sharable],
+            created: function () {
+                console.log('TextShareButton のフックが呼ばれました')
+            },
+            template: `
+                <button @click="share">{{ buttonLabel }}</button>
+            `,
+            data: function () {
+                return {
+                    buttonLabel: 'シェアする'
+                }
+            }
+        }
+
+        // ===================================================
+        // グローバルミックスイン
+        // ===================================================
+        Vue.mixin({
+            data: function () {
+                return {
+                    loggedInUser: null
+                }
+            },
+            created: function () {
+                const auth = this.$options.auth     // $optionでVueインスタンス生成時のオプションを参照できます
+                this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'))
+                if (auth && !this.loggedInUser) {
+                    window.alert(' このページはログインが必要です ')
+                }
+            }
+        })
+
+        const LoginRequiredPage = {
+            auth: true,
+            template: `
+                <div>
+                <p v-if="!loggedInUser">
+                    このページはログインが必要です
+                </p>
+                <p v-else>
+                    {{ loggedInUser.name }}さんでログインしています
+                </p>
+                </div>
+            `
+        }
+
+        const app = new Vue({
+            el: '#app',
+            components: {
+                IconShareButton,
+                TextShareButton,
+                LoginRequiredPage
+            },
+        })
+    </script>
+
+</body>
+
+</html>
