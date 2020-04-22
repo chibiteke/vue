@@ -3,9 +3,9 @@ module.exports = {
   tabWidth: 2,
   singleQuote: true,
   semi: true,
-  trailingComma: "es5",
+  trailingComma: 'es5',
   bracketSpacing: true,
-  htmlWhitespaceSensitivity: "ignore",
-  proseWrap: "preserve",
-  endOfLine: "auto"
+  htmlWhitespaceSensitivity: 'ignore',
+  proseWrap: 'preserve',
+  endOfLine: 'auto',
 };
