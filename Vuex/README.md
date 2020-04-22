@@ -4,3 +4,7 @@
 
 1. `npm install`
 2. `npm run serve`
+
+# 参考サイト
+
+- [Vuex 公式サイト](https://vuex.vuejs.org/ja/)
