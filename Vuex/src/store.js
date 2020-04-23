@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 // ストアの定義
 const store = new Vuex.Store({
+  // アプリケーション全体で使用さえるデータ
   state: {
     // タスクの初期ステート
     tasks: [
@@ -48,6 +49,8 @@ const store = new Vuex.Store({
     filter: null,
   },
 
+  // ステートから算出して値を返す
+  // キャッシュされ依存しているステートが更新されない限り再評価されない
   getters: {
     // フィルター後のタスクを返す
     filteredTasks(state) {
@@ -63,6 +66,8 @@ const store = new Vuex.Store({
     },
   },
 
+  // ステートを更新する
+  // commitで呼び出される
   mutations: {
     // タスクを追加する
     addTask(state, { name, labelIds }) {
@@ -113,6 +118,9 @@ const store = new Vuex.Store({
     },
   },
 
+  // アクションはミューテーションと似ていますが、下記の点で異なります:
+  // ・アクションは、状態を変更するのではなく、ミューテーションをコミットします。
+  // ・アクションは任意の非同期処理を含むことができます。
   actions: {
     // ローカルストレージにステートを保存する
     save({ state }) {
