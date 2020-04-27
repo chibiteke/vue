@@ -18,7 +18,6 @@ module.exports = {
     'plugin:vue/recommended', // eslint-plugin-vueを推奨設定でenable
     'prettier/vue', // eslint-config-prettierのvue用ルールを適用(2019/1/16修正)
   ],
-
   // add your custom type here
   rules: {
     'no-var': 'error', //varを許可しない
