@@ -8,15 +8,15 @@ export default {
     </div>
   `,
 
-  data () {
+  data() {
     return {
-      count: 0
-    }
+      count: 0,
+    };
   },
 
   methods: {
-    increment () {
-      this.count++
-    }
-  }
-}
+    increment() {
+      this.count++;
+    },
+  },
+};
