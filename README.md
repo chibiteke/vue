@@ -6,14 +6,18 @@
 
 - [開発者向けのウェブ技術](https://developer.mozilla.org/ja/docs/Web)
 
-## Vuex
+## Vuex（Vue.js アプリケーションのための 状態管理パターン + ライブラリ）
 
 - [Vuex 公式サイト](https://vuex.vuejs.org/ja/)
 
-## vue-cli
+## vue-cli（Standard Tooling for Vue.js Development）
 
 - [vue-cli 公式サイト](https://cli.vuejs.org/)
 - [Qiita:Vue.js を vue-cli を使ってシンプルにはじめてみる](https://qiita.com/567000/items/dde495d6a8ad1c25fa43)
+
+## Vue Test Utils （Vue.js 向けの公式単体テストライブラリ）
+
+- [vue-test-utils 公式サイト](https://vue-test-utils.vuejs.org/ja/)
 
 # 参考書籍
 
@@ -33,3 +37,4 @@ https://www.amazon.co.jp/dp/4863542453/ref=cm_sw_r_tw_dp_U_x_UC9MEb8954GPZ
 - Vuex の学習：Vuex を使用したタスク管理アプリケーション
 - Vuex Shopping Cart：Vuex を使用したショッピングカート
 - kanban-app：カンバン方式のタスク管理アプリケーション
+- vue-test-utils：Vue Test Utils の学習
