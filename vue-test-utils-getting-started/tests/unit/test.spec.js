@@ -3,15 +3,14 @@
 import { mount } from '@vue/test-utils';
 import Counter from '@/components/counter';
 
-// Now mount the component and you have the wrapper
-const wrapper = mount(Counter);
-
 // wrapper.vmを介して実際のVueインスタンスにアクセスできます。
 // const { vm } = wrapper;
-
 // console.log(wrapper);
 
 describe('Counter', () => {
+  // Now mount the component and you have the wrapper
+  const wrapper = mount(Counter);
+
   it('renders the correct markup', () => {
     expect(wrapper.html()).toContain('<span class="count">0</span>');
   });
@@ -21,10 +20,10 @@ describe('Counter', () => {
     expect(wrapper.contains('button')).toBe(true);
   });
 
-  // it('button should increment the count', () => {
-  //   expect(wrapper.vm.count).toBe(0);
-  //   const button = wrapper.find('button');
-  //   button.trigger('click');
-  //   expect(wrapper.vm.count).toBe(1);
-  // });
+  it('button should increment the count', () => {
+    expect(wrapper.vm.count).toBe(0);
+    const button = wrapper.find('button');
+    button.trigger('click');
+    expect(wrapper.vm.count).toBe(1);
+  });
 });
