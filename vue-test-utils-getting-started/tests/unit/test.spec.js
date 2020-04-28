@@ -7,9 +7,9 @@ import Counter from '@/components/counter';
 const wrapper = mount(Counter);
 
 // wrapper.vmを介して実際のVueインスタンスにアクセスできます。
-const { vm } = wrapper;
+// const { vm } = wrapper;
 
-console.log(wrapper);
+// console.log(wrapper);
 
 describe('Counter', () => {
   it('renders the correct markup', () => {
