@@ -18,6 +18,7 @@
 ## Vue Test Utils （Vue.js 向けの公式単体テストライブラリ）
 
 - [vue-test-utils 公式サイト](https://vue-test-utils.vuejs.org/ja/)
+- [Jest 公式サイト](https://jestjs.io/ja/)
 
 # 参考書籍
 
