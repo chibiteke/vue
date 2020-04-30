@@ -1,6 +1,9 @@
 module.exports = {
   runtimeCompiler: true,
   css: {
-    sourceMap: true
-  }
-}
+    sourceMap: true,
+  },
+  configureWebpack: {
+    devtool: 'source-map',
+  },
+};
