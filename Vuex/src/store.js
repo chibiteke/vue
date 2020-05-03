@@ -4,8 +4,71 @@ import Vuex from 'vuex';
 // VueにVuexを登録
 Vue.use(Vuex);
 
-// ストアの定義
-const store = new Vuex.Store({
+// ストアのモジュール分割
+// 例示用に非同期処理を行う関数
+// 実際のアプリではサーバーからデータを取得する
+function getCountNum(type) {
+  return new Promise((resolve) => {
+    // 1秒後にtypeに応じたデータを返す
+    setTimeout(() => {
+      let amount;
+      switch (type) {
+        case 'one':
+          amount = 1;
+          break;
+        case 'two':
+          amount = 2;
+          break;
+        case 'ten':
+          amount = 10;
+          break;
+        default:
+          amount = 0;
+          break;
+      }
+      resolve({ amount });
+    }, 1000);
+  });
+}
+
+// カウンタモジュールを定義
+const counter = {
+  // ステート
+  state: {
+    count: 10,
+  },
+
+  // ゲッター
+  getters: {
+    squared: (state) => state.count * state.count,
+  },
+
+  // ミューテーション
+  mutations: {
+    increment(state, amount) {
+      state.count += amount;
+    },
+  },
+
+  // アクション
+  actions: {
+    incrementAsync({ commit }, payload) {
+      return getCountNum(payload.type).then((data) => {
+        commit('increment', {
+          amount: data.amount,
+        });
+      });
+    },
+  },
+  // モジュールは入れ子に定義することができます
+  modules: {
+    childModule: {
+      // 入れ子のモジュール定義
+    },
+  },
+};
+
+const task = {
   // アプリケーション全体で使用さえるデータ
   state: {
     // タスクの初期ステート
@@ -140,6 +203,14 @@ const store = new Vuex.Store({
         commit('restore', JSON.parse(data));
       }
     },
+  },
+};
+
+// ストアの定義
+const store = new Vuex.Store({
+  modules: {
+    counter,
+    task,
   },
 });
 

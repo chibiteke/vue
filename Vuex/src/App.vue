@@ -67,11 +67,11 @@ export default {
     },
 
     labels() {
-      return this.$store.state.labels;
+      return this.$store.state.task.labels;
     },
 
     filter() {
-      return this.$store.state.filter;
+      return this.$store.state.task.filter;
     },
   },
 
