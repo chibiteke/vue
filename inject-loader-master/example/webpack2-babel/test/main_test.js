@@ -11,6 +11,7 @@ describe('Main', () => {
 
     beforeEach(() => {
       mainModuleInjector = require('inject-loader!main');
+      console.log(mainModuleInjector);
     });
 
     it('allows for injecting code into a subset of dependencies', () => {

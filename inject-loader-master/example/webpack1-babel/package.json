@@ -14,5 +14,8 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-webpack": "^4.0.2",
     "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
   }
 }
