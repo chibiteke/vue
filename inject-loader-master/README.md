@@ -52,3 +52,9 @@ There are a few examples of complete test setups for both Webpack 1, 2, 3 & 4 in
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
+
+
+# 参考サイト
+
+- https://github.com/plasticine/inject-loader
+- https://www.npmjs.com/package/inject-loader
