@@ -37,6 +37,11 @@ https://www.amazon.co.jp/dp/4297100916/ref=cm_sw_r_tw_dp_U_x_BH9MEbTFZV38N
 基礎から学ぶ Vue.js  
 https://www.amazon.co.jp/dp/4863542453/ref=cm_sw_r_tw_dp_U_x_UC9MEb8954GPZ
 
+![](img/51V9ywzb8xL.jpg)
+
+Nuxt.js ビギナーズガイド  
+https://www.amazon.co.jp/dp/B07J5434JB/ref=cm_sw_r_tw_dp_U_x_hWU4EbXD4JBQT
+
 # ブランチ（学習内容ごとに作成している）
 
 - vuejs-getting-started：Vue.js 基本機能
