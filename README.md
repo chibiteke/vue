@@ -20,6 +20,11 @@
 - [vue-test-utils 公式サイト](https://vue-test-utils.vuejs.org/ja/)
 - [Jest 公式サイト](https://jestjs.io/ja/)
 
+## Nuxt.js (Vue.js フレームワーク SPA の構築などに使われる)
+
+- [Nuxt.js 公式（日本語）](https://ja.nuxtjs.org/)
+- [リファレンス](https://ja.nuxtjs.org/api/)
+
 # 参考書籍
 
 ![](img/2020-04-19-13-50-19.png)
@@ -39,3 +44,4 @@ https://www.amazon.co.jp/dp/4863542453/ref=cm_sw_r_tw_dp_U_x_UC9MEb8954GPZ
 - Vuex Shopping Cart：Vuex を使用したショッピングカート
 - kanban-app：カンバン方式のタスク管理アプリケーション
 - vue-test-utils：Vue Test Utils の学習
+- Nuxt:Nuxt.js の学習
