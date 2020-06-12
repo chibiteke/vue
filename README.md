@@ -39,9 +39,8 @@ https://www.amazon.co.jp/dp/4863542453/ref=cm_sw_r_tw_dp_U_x_UC9MEb8954GPZ
 
 # ブランチ（学習内容ごとに作成している）
 
-- learning/vue.js 入門　：Vue.js 基本機能
-- Vuex の学習：Vuex を使用したタスク管理アプリケーション
-- Vuex Shopping Cart：Vuex を使用したショッピングカート
+- vuejs-getting-started：Vue.js 基本機能
+- learning-Vuex：Vuex を使用したタスク管理アプリケーション。ショッピングカート
 - kanban-app：カンバン方式のタスク管理アプリケーション
 - vue-test-utils：Vue Test Utils の学習
 - Nuxt:Nuxt.js の学習
