@@ -142,3 +142,9 @@ i Waiting for file changes 13:51:56
 i Memory usage: 212 MB (RSS: 273 MB) 13:51:56
 i Listening on: http://localhost:3000/ 13:51:56
 ```
+
+## axios-module の導入
+
+```
+> npm install --save @nuxtjs/axios
+```

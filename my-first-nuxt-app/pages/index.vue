@@ -23,6 +23,9 @@ export default {
   components: {
     AppLogo,
   },
+  async mounted() {
+    console.log(JSON.stringify(await this.$axios.$get('https://qiita.com/api/v2/items?query=tag:nuxt.js'), true, ' '));
+  },
 };
 </script>
 
