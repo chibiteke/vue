@@ -6,7 +6,10 @@
       "type": "pwa-chrome",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}",
-      "runtimeArgs": ["--remote-debugging-port=9222"]
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "sourceMapPathOverrides": {
+        "webpack:///*.vue": "${workspaceFolder}/*.vue"
+      }
     },
     {
       "type": "node",
@@ -15,7 +18,10 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "dev-debug"],
       "port": 9229,
-      "skipFiles": ["<node_internals>/**"]
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
     }
   ],
   "compounds": [
