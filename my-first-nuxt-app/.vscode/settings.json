@@ -1,0 +1,104 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.accessibilitySupport": "off",
+  "editor.suggestSelection": "first",
+  "editor.detectIndentation": false,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "workbench.colorTheme": "Monokai",
+  "workbench.iconTheme": "vscode-icons",
+  "editor.tokenColorCustomizations": {
+    // "semanticHighlighting": false
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  // "liveServer.settings.donotVerifyTags": true,
+  // MarkDownのため Ctrl + Alt + V
+  "pasteImage.path": "${currentFileDir}/img",
+  // vscode-live-sass-compiler
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorCustomizations": {
+    // "tab.activeBorderTop": "#ffff00",
+    // "tab.activeBackground": "#34352f",
+    // "tab.inactiveBackground": "#272822",
+  },
+  "php-cs-fixer.executablePath": "~/.vscode/php-cs-fixer-v2.phar",
+  "php-cs-fixer.lastDownload": 1569228522743,
+  "php-cs-fixer.rules": "@PSR2",
+  "php-cs-fixer.formatHtml": true,
+  "python.jediEnabled": false,
+  "php-cs-fixer.onsave": true,
+  "emmet.includeLanguages": {
+    "erb": "html",
+    "vue-html": "html"
+  },
+  "eslint.validate": ["javascript", "vue"],
+  "eslint.options": {
+    // "configFile": "C:\\Users\\chibi\\.vscode\\.eslintrc.js"
+  },
+  "stylelint.autoFixOnSave": true,
+  "javascript.format.enable": false,
+  "html.format.wrapLineLength": 1000,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "files.associations": {},
+  "vsicons.dontShowNewVersionMessage": true,
+  "stylelint.config": {
+    "editor.formatOnSave": true
+  },
+  "prettier.stylelintIntegration": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "python.formatting.autopep8Args": ["--ignore=E70", "--max-line-length=120"],
+  "[vue]": {
+    "editor.defaultFormatter": "SimonSiefke.prettier-vscode"
+    // "editor.defaultFormatter": "octref.vetur"
+  },
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "remote.SSH.remotePlatform": {
+    "vagrant64_18": "linux"
+  },
+  "files.autoGuessEncoding": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "editor.wordWrapColumn": 2000,
+  "intelephense.diagnostics.undefinedClassConstants": false,
+  "intelephense.diagnostics.undefinedConstants": false,
+  "intelephense.diagnostics.undefinedFunctions": false,
+  "intelephense.diagnostics.undefinedMethods": false,
+  "intelephense.diagnostics.undefinedProperties": false,
+  "intelephense.diagnostics.undefinedTypes": false,
+  "php.validate.executablePath": "D:\\xampp\\php\\php.exe",
+  "php.validate.run": "onType",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  // フォーマッターをvscode-typescriptに変更
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  // この設定はprettierではなくtypescriptのものです
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ]
+}

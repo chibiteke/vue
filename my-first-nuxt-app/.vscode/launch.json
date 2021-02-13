@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "sourceMapPathOverrides": {
+        "webpack:///*.vue": "${workspaceFolder}/*.vue"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch via NPM",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "dev-debug"],
+      "port": 9229,
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full-stack",
+      "configurations": ["Launch via NPM", "Launch Chrome"]
+    }
+  ]
+}
