@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>animate.css</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p><input type="text" v-model="animationClass"></p>
+        <button @click="isShown=!isShown">表示の切り替え</button>
+        <!-- トランジションアニメーションで付け替えするクラスを変更するためにenter-active-classプロパティとleave-active-classプロパティを指定する -->
+        <transition :enter-active-class="activeClass" :leave-active-class="activeClass">
+            <p v-show="isShown">Hello, world!</p>
+        </transition>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    animationClass: 'bounce',
+                    isShown: false
+                }
+            },
+            computed: {
+                activeClass: function () {
+                    // 設定するクラスの値を計算する。インプットフィールドの入力に応じて計算される
+                    return this.animationClass + ' animated'
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

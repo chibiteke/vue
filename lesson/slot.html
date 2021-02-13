@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Slot</title>
+    <script src="https://unpkg.com/vue@2.6.11"></script>
+
+    <style>
+        header {
+            background: #f1f1f1;
+        }
+
+        footer {
+            background: #f1f1f1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <!--  -->
+        <!-- 5.2.1 単一スロット -->
+        <!--  -->
+        <!-- コンテンツありでコンポーネントを設置する -->
+        <my-button>送信する</my-button>
+        <!-- コンテンツなしでコンポーネントを設置する -->
+        <my-button></my-button>
+
+        <!--  -->
+        <!-- 5.2.2 名前付きスロット -->
+        <!--  -->
+        <my-page>
+            <h1 slot="header">This is My page</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus corrupti, voluptatibus sit saepe accusamus ex possimus, magnam quia ducimus quaerat nostrum, amet nulla provident
+                harum debitis praesentium dolor quisquam totam.
+            </p>
+            <p slot="footer">This is footer</p>
+        </my-page>
+        <br>
+        <hr>
+        <!-- v-soltの書き方 -->
+        <my-page>
+            <template v-slot:header="header">
+                <h1>２つめのheader</h1>
+            </template>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus corrupti, voluptatibus sit saepe accusamus ex possimus, magnam quia ducimus quaerat nostrum, amet nulla provident
+                harum debitis praesentium dolor quisquam totam.
+            </p>
+            <template v-slot:footer="footer">
+                <p>2つ目のfooter</p>
+            </template>
+        </my-page>
+
+        <!--  -->
+        <!-- 5.2.3 スロットのスコープ -->
+        <!--  -->
+        <todo-list :todos="todos">
+            <template v-slot:default="slotProps">
+                <li v-show="slotProps.todo.isCompleted" :key="slotProps.todo.id">
+                    {{slotProps.todo.text}}
+                </li>
+            </template>
+        </todo-list>
+
+
+
+
+    </div>
+
+    <script>
+        // 単一スロット
+        const MyButton = {
+            template: `
+            <button>
+                <slot>コンテンツなしのときの表示</slot>
+            </button>
+            `
+        }
+
+        // 名前付きスロット
+        const MyPage = {
+            template: `
+            <div>
+                <header>
+                    <slot name="header"></slot>
+                </header>
+                <main>
+                    <slot></slot>
+                </main>
+                <footer>
+                    <slot name="footer"></slot>
+                </footer>
+            </div>
+            `
+        }
+
+
+        // スロットのスコープ
+        const TodoList = {
+            props: {
+                todos: {
+                    type: Array,
+                    required: true
+                }
+            },
+            template: `
+            <ul>
+                <template v-for="todo in todos">
+                    <slot :todo="todo">
+                        <li :key="todo.id">
+                            {{todo.text}}
+                        </li>
+                    </slot>
+                </template>
+            </ul>
+            `
+        }
+
+
+
+        const app = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    todos: [
+                        { id: 1, text: 'C++', isCompleted: true },
+                        { id: 2, text: 'JavaScript', isCompleted: false },
+                        { id: 3, text: 'Java', isCompleted: true },
+                        { id: 4, text: 'Perl', isCompleted: false },
+                    ]
+                }
+            },
+            components: {
+                MyButton,
+                MyPage,
+                TodoList
+            }
+        })
+    </script>
+</body>
+
+</html>

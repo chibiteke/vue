@@ -8,5 +8,4 @@ module.exports = {
   htmlWhitespaceSensitivity: 'ignore',
   proseWrap: 'preserve',
   endOfLine: 'auto',
-}
-
+};

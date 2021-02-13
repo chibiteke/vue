@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>componentの学習</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="components-demo">
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button>{{count}}</button>
+      <hr />
+      <list-item></list-item>
+      <hr />
+      <item-desc v-bind:item-name="myItem"></item-desc>
+    </div>
+
+    <script>
+      Vue.component('button-counter', {
+        data: function() {
+          return {
+            count: 0,
+          };
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>',
+      });
+
+      Vue.component('list-item', {
+        template: '<li>foo {{contents}} </li>',
+        data: function() {
+          return { contents: 'bar' };
+        },
+      });
+
+      Vue.component('item-desc', {
+        template: '<p>{{itemName}}は便利です。 </p>',
+        props: {
+          itemName: {
+            type: String,
+          },
+        },
+      });
+
+      const vueobj = new Vue({
+        el: '#components-demo',
+        data: {
+          count: 1,
+          myItem: 'pen',
+        },
+      });
+      console.log('おしまい');
+    </script>
+  </body>
+</html>
