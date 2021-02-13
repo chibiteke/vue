@@ -5,9 +5,8 @@
     }
   ],
   "settings": {
-    "settings": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": false
-        }
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": false
+    }
   }
 }
