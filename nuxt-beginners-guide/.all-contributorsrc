@@ -1,0 +1,55 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "potato4d",
+      "name": "Takuma HANATANI",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6993514?v=4",
+      "profile": "https://potato4d.me",
+      "contributions": [
+        "code",
+        "maintenance",
+        "doc",
+        "bug"
+      ]
+    },
+    {
+      "login": "takepan",
+      "name": "takepan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2904207?v=4",
+      "profile": "https://github.com/takepan",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "diwao",
+      "name": "Daisuke Iwao",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6600973?v=4",
+      "profile": "https://diwao.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "wand2016",
+      "name": "D.Horiyama",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/22491120?v=4",
+      "profile": "https://github.com/wand2016",
+      "contributions": [
+        "doc",
+        "test",
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "nuxt-beginners-guide",
+  "projectOwner": "potato4d",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

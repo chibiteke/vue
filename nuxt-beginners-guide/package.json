@@ -1,0 +1,17 @@
+{
+  "name": "nuxt-beginners-guide-examples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/elevenback/nuxt-beginners-guide-examples.git",
+  "author": "HANATANI Takuma <mail@potato4d.me>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "format": "prettier 'docs/**/*.{js,vue,md}' --write"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.2",
+    "vuepress": "^0.14.2"
+  }
+}
